@@ -1,7 +1,7 @@
 # ---------------------------------------------
-# Nom du fichier: tests.py
-# Auteur: Maxime Rabaud
-# Description: fichier principal pour executer le programme 
+# nom du fichier: tests.py
+# auteur: maxime rabaud
+# description: fichier principal pour executer le programme 
 # ---------------------------------------------
 
 import itertools
@@ -13,15 +13,14 @@ TEST_TYPES = ["Functionnal", "Reliability", "Performance", "Operability", "Secur
 TEST_RESULTS = ["Passed", "Failed", "Skipped", "Error", "Passed"]
 
 class Test:
-    """ 
-    Classe qui definit un test avec ses attributs 
-    """
+  # Classe qui definit un test avec ses attributs 
+  
 
-    _id_obj = itertools.count(start=1)
+  _id_obj = itertools.count(start=1)
 
   def __init__(self, test_type: str, exec_date: str, exec_duration: str, result: str):
-    # Initialise une nouvelle instance d'un test
-    
+      # Initialise une nouvelle instance d'un test
+
 
     self.id = next(Test._id_obj)
     self.name = f"Test_{self.id:04d}" # ex. Test_0001 
@@ -32,15 +31,15 @@ class Test:
 
   def get_formatted_dictionnary(self):
       # Retourne un dictionnaire de type {key: value} pour chaque attributs 
-      return vars(self)
+    return vars(self)
 
 
 def init_tests(nb: int):
-  # Initialise <nb> tests et renvoie un tableau 
+    # Initialise <nb> tests et renvoie un tableau 
   tests = []
 
   for _ in range(nb):
-      test_type = rd.choice(TEST_TYPES)
+    test_type = rd.choice(TEST_TYPES)
     exec_date = date.today()
     exec_duration = rd.randint(1, 300)
     result = rd.choice(TEST_RESULTS)
